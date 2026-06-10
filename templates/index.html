@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>To-Do App</title>
+</head>
+<body style="font-family: Arial, sans-serif; margin: 20px;">
+
+<h1>To-Do Application</h1>
+
+<form action="/add" method="post">
+    <input type="text" name="task" placeholder="Enter Task">
+    <button type="submit">Add</button>
+</form>
+
+<ul>
+{% for task in tasks %}
+<li>
+    {{ task }}
+    <form method="POST"
+      action="/delete/{{ task._id }}">
+    <button>Delete</button>
+</form>
+</li>
+{% endfor %}
+</ul>
+
+</body>
+</html>
